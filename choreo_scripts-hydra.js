@@ -5,50 +5,66 @@
 
 // HYDRA // 'cntr' + 'shift' + 'enter' — runs all the code
 
+
 s0.initScreen()
 src(s0)
+// insert code here
+.out()
+
+// simple smooth
+.scrollX(0, 0.01)
+.kaleid(4)
+
+// wild kaleid
 .scale(5)
 .rotate(0.1,1)
 .kaleid(25)
-.out()
 
+// wilder
 pattern = () => osc(900, 0).kaleid(100).scale(1, 0.4)
 
-s0.initScreen()
-src(s0)
-pattern()
-  .scrollX(5000, 0.01)
-  .mult(pattern())
-	.blend(s0)
-  .out()
+// simple shape trasition
+.diff(shape(6,1.1,0.01))
+.layer(shape(2).color(1,1,1,({time})=>Math.sin(time*2)))
 
-s0.initScreen()
-src(s0)
-.add(shape(2).color(2,2,2).scale(0.006).rotate(0.000001))
-.modulate(noise(()=> a.fft[1]*10 +0.01).scale(5,0.1))
-.out()
-
-
-.color([0.14,0.72,0.4])
-.color(-1,-1,-1) // image inverted
-
-.add(shape(2).color(2,2,2).scale(0.006).rotate(0.000001))
-.modulate(noise(()=> a.fft[1]*10 +0.01).scale(5,0.1))
-
-.mult(shape(80,0.1,-0.1))
-.mult(shape(100,10,1))
+//scrolling
 .scrollX(1,0.1)
 .scrollY(10,0.1)
+.scrollY(0, ({time}) => Math.sin(time*0.05)*0.05 )
 
+// shake it / lines
+.modulate(noise(()=> a.fft[1]*10 +0.01).scale(5,0.1))
+.add(shape(2).color(2,2,2).scale(0.006).rotate(0.000001))
+.modulate(noise(()=> a.fft[1]*10 +0.01).scale(5,0.1))
+
+// more lines
+.add(shape(2).color(2,2,2).scale(0.006).rotate(0.000001))
+.modulate(noise(()=> a.fft[1]*10 +0.01).scale(5,0.1))
+
+
+// image inverted
+.color(-1,-1,-1) 
+// basic colour changing
+solid([1,0,0],[0,1,0],[0,0,1],1)
+
+// bouncing repeat
 .repeat(1,5)
 .repeatY( ({time})=>Math.sin(time/2)*50)
-
+// add below around and around
 .rotate(1,()=> a.fft[3]*1 +0.01)
 .rotate(0.2,0.9) // second value is speed
 
-shape() // fractals
-	.add(o0,0.9)
-	.repeat (2.2)
+
+// fast tempo
+s0.initScreen()
+src(s0)
+  .scrollX(0, ({time}) => Math.sin(time*0.05)*0.05 )
+  .scrollY(0, ({time}) => Math.sin(time*0.01)*-0.07 )
+  .pixelate([5,2,10],[15,8])
+  .scale(0.15)
+  .modulate(noise(1,0.25))
+.out()
+
 
 // GOOGLE MAPS AND SEARCH
 function breathe_in () {
@@ -123,3 +139,26 @@ function Move() {
 }
 Move();
 //clearTimeout(scrolldelay)
+
+// - - - more
+
+// rainbow
+s0.initScreen()
+src(s0)
+  .mult(osc(10,0.25,1))
+  .scrollY(1,0.25)
+  .modulateRotate(src(o0).scale(0.5),0.125)
+  .diff(src(o0).rotate([-0.05,0.05].fast(0.125)))
+  .blend(s0)
+.out()
+
+// other
+s0.initScreen()
+src(s0)
+  .modulateScale(osc(4,50,10).kaleid(100).scale(5),5,0)
+  .blend(s0)
+.out()
+
+shape() // fractals
+  .add(o0,0.9)
+  .repeat (2.2)
