@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>Choreo-Graphic Coding</title>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <meta name="description" content="Live Coding Choreographies on Web Environments">
+    <meta name="keywords" content="design, media design, graphic design, choreography, physical, digital, web, live, creative coding, choreographic thinking, performance, Joana Chicau">
+    <meta name="author" content="Joana Chicau">
+
+<style type="text/css">
+
+html {
+    box-sizing: border-box;
+    height: 100%
+}
+*, *:before, *:after { 
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit; 
+}
+body{
+  margin:0px;
+  animation: bodymove 30s infinite; 
+  -webkit-animation: bodymove 30s infinite; 
+}
+
+@keyframes bodymove {
+      0%   { background: radial-gradient(ellipse at center, #0000FF, #E6E6FA 10%, #0000FF);
+            background-size: 100% 100%;}
+      5%   { background: radial-gradient(ellipse at center, #0000FF, #E6E6FA 10%, #0000FF);
+              background-size: 60% 300%;}
+      10%   { background: radial-gradient(ellipse at center, #0000FF, #FFFAF0 10%, #0000FF);
+            background-size: 100% 100%;}
+      20%   { background: radial-gradient(ellipse at top, #0000FF, #FFFAF0 100%, #0000FF);
+              background-size: 10% 10%; }
+      22%   { background: radial-gradient(ellipse at top,  #FFFAF0, #FFFAF0 10%, #0000FF 10%);
+            background-size: 100% 10%;}
+      26%   { background: radial-gradient(ellipse at top, #FFFAF0, #0000FF 10%, #FFFAF0 10%);
+              background-size: 100% 10%;}
+      30%   { background: radial-gradient(ellipse at top, #FFFAF0, #0000FF 40%, #0000FF);
+              background-size: 10% 100%;}
+      35%   { background: radial-gradient(ellipse at top, #FFFAF0, #0000FF 40%, #FFFAF0);
+              background-size: 10% 100%;}
+      40%   { background: radial-gradient(ellipse at center, #FFFAF0, #0000FF 10%, #FFFAF0 10%);}
+      45%   { background: radial-gradient(ellipse at center, #FFFAF0, #0000FF 10%, #fff 100%);}
+      65%   { background: radial-gradient(ellipse at center, #fff, #0000FF 10%, #fff 100%);
+              background-size: 10% 999%;
+              background-position: left;}
+      70%   { background: radial-gradient(ellipse at center, #fff, #0000FF 10%, #fff 100%);
+              background-size: 10% 999%;}
+      85%   { background: linear-gradient(#fff, #0000FF 10%, #fff 100%);
+              background-size: 10% 10%;}
+      90%   { background: linear-gradient(#fff, #0000FF 100%, #fff 10%);
+              background-size: 100% 1%;}
+      100%   { background: linear-gradient(#fff, #0000FF 100%, #fff 10%);}        
+}
+
+
+video {
+  width: 100%;
+  height: 100%;
+}
+#stage02{
+  font-size: 15vh;
+  line-height: 18vh;
+  position: absolute;
+  z-index: 90;
+  top: 0;
+  font-family: serif;
+  font-weight: bold;
+  word-spacing: 1vw;
+  filter: opacity(0.8);
+}
+</style>
+</head>
+
+
+<body onload="dancingVideo()">
+
+<!-- STAGE 01 -->
+
+<iframe src="https://www.youtube.com/embed/azpH0v2MdKw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1" frameborder="0" autoplay allowfullscreen class="stage01"></iframe>
+
+<iframe src="https://www.youtube.com/embed/azpH0v2MdKw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1" frameborder="0" autoplay allowfullscreen class=""></iframe>
+
+<!-- STAGE 02 -->
+
+<div id="stage02"></div> 
+
+<script type="text/javascript">
+
+//-------------------------------------------------------------------------- 
+// CHOREOGRAPHIC CODE by Joana Chicau 
+//--------------------------------------------------------------------------
+
+// — IFRAME —
+
+var dance = new Array(
+  // Decorah Eagles - North Nest  by EXPLORE.org
+    "https://www.youtube.com/embed/eTAsANPVqB8?controls=0&showinfo=0&rel=0&autoplay=1&loop=1",
+
+  // Tropical Reef Camera  by EXPLORE.org
+    "https://www.youtube.com/embed/F109TZt3nRc?controls=0&showinfo=0&rel=0&autoplay=1&loop=1",
+
+  // West End Bald Eagle Cam powered by EXPLORE.org
+    "https://www.youtube.com/embed/RmmAzrAkKqI?controls=0&showinfo=0&rel=0&autoplay=1&loop=1"
+);
+
+
+function dancingVideo() {
+    danceIndex = 0;
+    idInterval = 0;
+    noOrbit = setInterval(function() {
+    danceIndex = (danceIndex + 1) % dance.length;
+    document.querySelector(".stage01").src = dance[danceIndex];
+    },25000);
+    console.log('status: dancing video  \n  \n ');
+}
+
+
+
+// — TEXT ARRAY —
+
+    var delay="0"; 
+    var count='0';
+    var Texts=new Array();
+      Texts[0]="Choreography";
+      Texts[1]="as a mobilising language,";
+      Texts[2]="words to define";
+      Texts[4]="space and  time";
+      Texts[5]="expand and contract";
+      Texts[6]="or remain as it seems to be.";
+      Texts[7]="as it seems to be.";
+
+    function dancingText(){
+      document.querySelector('#stage02').innerHTML = Texts[count]; 
+      count++;
+      if(count==Texts.length){count='0';}
+      setTimeout("dancingText()",20000); // should take 4min;
+
+      console.log('status: dancing text   \n  \n ');
+    } 
+
+</script>
+</body>
+</html>
