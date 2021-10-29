@@ -112,42 +112,63 @@ src(s0)
 
 // next tab 
 // BREATHING
-function breathe_in () {
-	document.querySelector("#widget-zoom-in").click();
-}
-//setInterval("breathe_in ()",4000)
+function breathing() {
+    var zooming = document.querySelector("body");
+    currentScale = 1;
+    currenttime = setInterval(function() {
+    zooming.style.transform="scale(" + currentScale + ")";
+    currentScale = Math.random() * 5
+    }, 800); 
+} 
 
-function breathe_out () {
-	document.querySelector("#widget-zoom-out").click();
-}
-//setInterval("breathe_out ()",6000)
+// breathing()
 
-function matrix() {
-document.querySelector(".widget-scene-canvas").style.transform="matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)";
+
+function noBreathing() { 
+    clearInterval(currenttime); 
+} 
+
+
+document.querySelector("").style.transform="matrix(1.0, 2.0, 3.0, 4.0, 5.0, 6.0)";
+
+document.querySelector("#stage02").style.filter="opacity(0.2)";
+
+
+// dancingText()
+
+
+function changeGrounds (){
+  document.querySelector("body").classList.add('bodymove');
 }
 
+// changeGrounds ()
 
 
 // back to hydra
 
 // smooth ending
+s0.initScreen()
+src(s0)
+
 voronoi(1,-0.1,10)
 .add(osc(1,0,1)).kaleid(50)
 .scale(1,1,2).out(o1)
 src(o1).mult(src(s0).modulateRotate(o1,10), -0.5)
 .out(o0)
 
-
+.out()
 
 // ENDING back to RGB
 
-// image inverted
-.color(-1,-1,-1) 
-// basic colour changing
+s0.initScreen()
+src(s0)
+
+.color(-1,-1,-1)
+
 solid([1,0,0],[0,1,0],[0,0,1],1)
+.blend(s0)
 
-
-
+.out()
 
 
 

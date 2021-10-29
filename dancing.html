@@ -21,6 +21,10 @@ html {
 }
 body{
   margin:0px;
+  background-color: #f8a8ff;
+}
+
+.bodymove {
   animation: bodymove 30s infinite; 
   -webkit-animation: bodymove 30s infinite; 
 }
@@ -61,9 +65,19 @@ video {
   width: 100%;
   height: 100%;
 }
+.stage01{
+  width: 100%;
+  height: 100vh;
+}
+.stage03{
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+}
 #stage02{
-  font-size: 15vh;
-  line-height: 18vh;
+  font-size: 14vmax;
+  line-height: 16vmax;
   position: absolute;
   z-index: 90;
   top: 0;
@@ -71,6 +85,7 @@ video {
   font-weight: bold;
   word-spacing: 1vw;
   filter: opacity(0.8);
+  text-shadow: 2px 2px 2px aquamarine;
 }
 </style>
 </head>
@@ -82,7 +97,7 @@ video {
 
 <iframe src="https://www.youtube.com/embed/azpH0v2MdKw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1" frameborder="0" autoplay allowfullscreen class="stage01"></iframe>
 
-<iframe src="https://www.youtube.com/embed/azpH0v2MdKw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1" frameborder="0" autoplay allowfullscreen class=""></iframe>
+<iframe src="https://www.youtube.com/embed/azpH0v2MdKw?controls=0&showinfo=0&rel=0&autoplay=1&loop=1" frameborder="0" autoplay allowfullscreen class="stage03"></iframe>
 
 <!-- STAGE 02 -->
 
@@ -125,13 +140,25 @@ function dancingVideo() {
     var delay="0"; 
     var count='0';
     var Texts=new Array();
-      Texts[0]="Choreography";
-      Texts[1]="as a mobilising language,";
-      Texts[2]="words to define";
-      Texts[4]="space and  time";
-      Texts[5]="expand and contract";
-      Texts[6]="or remain as it seems to be.";
-      Texts[7]="as it seems to be.";
+      Texts[0]="choreography is the writing of movement < ";
+      Texts[1]="a mobilising language,";
+      Texts[2]="words to define space - time";
+      Texts[3]="( — expand - )  ) contract (　ヽ(　　　)ノ";
+      Texts[4]="_";
+      Texts[5]="qual o movimento da coreografia?";
+      Texts[6]="_";
+      Texts[7]="moving >>>  you <<< moving us, standing still > < ";
+      Texts[8]="refuse the movement";
+      Texts[9]="_";
+      Texts[10]="breathe... BREATHE ... breathing in and ...";
+      Texts[11]="_";
+      Texts[12]="respirar ... e OCUPAR o espaço";
+      Texts[13]="_";
+      Texts[14]="choreography is the organization of tensions";
+      Texts[15]="and counter -  tensions ";
+      Texts[16]="counter - choreographies - counter - choreographies ";
+      Texts[17]="_";
+      Texts[18]="continue b r e a t h i n g ";
 
     function dancingText(){
       document.querySelector('#stage02').innerHTML = Texts[count]; 
@@ -141,6 +168,23 @@ function dancingVideo() {
 
       console.log('status: dancing text   \n  \n ');
     } 
+
+function breathing() {
+    var zooming = document.querySelector("body");
+    currentScale = 1;
+    currenttime = setInterval(function() {
+    zooming.style.transform="scale(" + currentScale + ")";
+    currentScale = Math.random() * 5
+    }, 800); 
+} 
+
+function noBreathing() { 
+    clearInterval(currenttime); 
+} 
+
+function changeGrounds (){
+  document.querySelector("body").classList.add('bodymove');
+}
 
 </script>
 </body>
