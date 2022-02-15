@@ -15,17 +15,32 @@
 //  |___/                                                  |___/
 
 
-//search youtube — webcam live stream online 
-function breathing () {
+//search youtube — webcam live stream online
+
+function newHTMLskin () {
     var divs = document.querySelectorAll('div'), i;
-    currenttime = setInterval(function() {
       for (i = 0; i < divs.length; ++i) {
       divs[i].style.background = "linear-gradient(" + Math.floor(Math.random() * 1000) + "deg, Aquamarine, MistyRose, Blue, Plum, Red)";
-      divs[i].style.transform = "skewX " + Math.floor(Math.random() * 360) + "deg"; 
       }
-    }, 800); 
+}
+newHTMLskin()
+
+function breathing() {
+  var zooming = document.querySelectorAll('.badge-style-type-live-now'), i;
+  currentScale = 1;
+  currenttime = setInterval(function() {
+        for (i = 0; i < zooming.length; ++i) {
+          zooming[i].style.transform="scale(" + currentScale + ")";
+          zooming[i].style.background="blue";
+          currentScale = Math.random() * 10;
+        }
+    }, 800);
 }
 breathing()
+
+function noBreathing() {
+    clearInterval(currenttime);
+}
 
 // const newtext = document.createElement('div');
 // newtext.classList.add('showtext');
@@ -47,25 +62,27 @@ breathing()
       Texts[10]="";
       Texts[11]="movement undefined";
       Texts[12]="breathing in and out...";
-      Texts[13]="respirar ... e ocupar o espaço"; //"respirar ... e ocupar o espaço";
+      Texts[13]="";
       Texts[14]="choreography is the organization of tensions";
       Texts[15]="and counter -  tensions ";
       Texts[16]="counter - choreographies";
       Texts[17]="";
-      Texts[18]="continue b r e a t h i n g";
+      Texts[18]="continue b r e a t h i n g"
 
     function dancingText(){
-      document.querySelector('#stage02').innerHTML = Texts[count];
+      document.querySelector('.showtext').innerHTML = Texts[count];
       count++;
       if(count==Texts.length){count='0';}
-      setTimeout("dancingText()",20000); // should take 4min;
-
+      setTimeout("dancingText()",10000); // should take 2min;
       console.log('status: dancing text   \n  \n ');
     }
 
 // dancingText()
 
-// dance.push('https://www.youtube.com/embed/i-BCQnrwkTY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1');
+
+
+// dancingVideo()
+// dance.push('https://www.youtube.com/embed/BCQnrwkTY?controls=0&showinfo=0&rel=0&autoplay=1&loop=1');
 
 
 // screenshare & mask rgb
