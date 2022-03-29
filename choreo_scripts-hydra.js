@@ -8,14 +8,13 @@
 // ALT-Enter: run a block
 
 
-//   __ _  ___   ___   __| |   _____   _____ _ __ (_)_ __   __ _
-//  / _` |/ _ \ / _ \ / _` |  / _ \ \ / / _ \ '_ \| | '_ \ / _` |
-// | (_| | (_) | (_) | (_| | |  __/\ V /  __/ | | | | | | | (_| |
-//  \__, |\___/ \___/ \__,_|  \___| \_/ \___|_| |_|_|_| |_|\__, |
-//  |___/                                                  |___/
++-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+-+-+-+
+|o|l|a| |p|e|q|u|e|n|o| |m|u|n|d|o|!|
++-+-+-+ +-+-+-+-+-+-+-+ +-+-+-+-+-+-+
 
 
 //search youtube — webcam live stream online
+// Hastings Pier Webcam and English Channel LIVE HD?
 
 function newHTMLskin () {
     var divs = document.querySelectorAll('div'), i;
@@ -44,37 +43,38 @@ function noBreathing() {
 
 // const newtext = document.createElement('div');
 // newtext.classList.add('showtext');
-// document.getElementById('primary').append(newtext);
+// document.getElementById('content').append(newtext);
+
+// #gs_lc50
 
     var delay="0";
     var count='0';
     var Texts=new Array();
-      Texts[0]="new choreography";
+      Texts[0]="nova coreografia";
       Texts[1]="set the movement";
       Texts[2]="words to define space - time";
-      Texts[3]="( — expand - )  ) contract (　ヽ(　　　)ノ";
+      Texts[3]="(  expand  ノ) )contract(()";
       Texts[4]="the space of the body";
       Texts[5]="the body in space";
-      Texts[6]="";
-      Texts[7]="moving you";
+      Texts[6]="o movimento to corpo";
+      Texts[7]="";
       Texts[8]="refuse the movement";
-      Texts[9]="BREATHE";
+      Texts[9]="anular o moviment";
       Texts[10]="";
       Texts[11]="movement undefined";
-      Texts[12]="breathing in and out...";
+      Texts[12]="o movimento sem definição";
       Texts[13]="";
       Texts[14]="choreography is the organization of tensions";
       Texts[15]="and counter -  tensions ";
       Texts[16]="counter - choreographies";
-      Texts[17]="";
-      Texts[18]="continue b r e a t h i n g"
+      Texts[17]="BREATHE";
+      Texts[18]="continua a respirar"
 
     function dancingText(){
-      document.querySelector('.showtext').innerHTML = Texts[count];
+      document.querySelector('body').innerHTML = Texts[count];
       count++;
       if(count==Texts.length){count='0';}
-      setTimeout("dancingText()",10000); // should take 2min;
-      console.log('status: dancing text   \n  \n ');
+      setTimeout("dancingText()",10000);
     }
 
 // dancingText()
@@ -87,38 +87,35 @@ function noBreathing() {
 
 // screenshare & mask rgb
 s0.initScreen()
-src(s0)
-  //.scrollX(0, ({time}) => Math.sin(time*0.02)*0.05 )
-  //.layer(osc(30,0.1,2).mask(shape(3)))
-// wavy screens
-  //.scale(0.5)
-  //.modulateScale(osc(2,0.5),-2)
-  //.blend(s0)
-// screen kaleid
-  //.modulateKaleid(voronoi(() => Math.sin(time)*3,0.1,0.1),() => Math.sin(time)*5)
-  //.scale(() => Math.sin(time)*3)
-.out()
-
-
-
-a.setBins(4);
+a.setBins(2);
 a.show();
-//osc(() => a.fft[0]*2000).kaleid(100)
-shape([3,4,50,6])
-  //.scale(() => a.fft[2]*3).kaleid(2)
-  //.repeat(()  => a.fft[0]*6)
-// new function below;
-//lfo = () => osc(Math.PI*1,1,0).pixelate(20,10)
-  //shape(2).color(1,1,1).mult(lfo())
-  //.modulate(noise(()=> a.fft[3]*10 +0.01).scale(1,0.01))
-  //.rotate(()=> a.fft[1]*10 +0.01).scale(5,0.1)
-  //.repeat (2.2)
-  //.scale(5).rotate(0.1,1).kaleid(50)
-//smooth ending
-// voronoi(1,-0.1,10)
+src(s0)
+// .scrollX(0, ({time}) => Math.sin(time*0.02)*0.05 )
+// .layer(osc(1,1,6).mask(shape(3)))
+// FLUID
+//.modulateKaleid(osc(12,0.05,0),1)
+// .luma (0.94)
+//.rotate(4, 0.1,0)
+// FLUID noise
+//.modulate(noise(6),.22)
+//  	.modulateScrollY(osc(2).modulate(osc().rotate(),.11))
+//	.scale(.2)
+// wavy screens
+// .modulateRepeat(osc(2),1, 2, 4, 3)
+//.blend(s0)
+// screen kaleid
+//.modulateKaleid(voronoi(() => Math.sin(time)*1,1,1),() => Math.sin(time)*1)
+//.scale(() => Math.sin(time)*2)
+// voronoi(1,-1,10)
   //.add(osc(1,0,1)).kaleid(50)
-  //.scale(1,1,2)
-.out( o0 );
-
+  //.scale(20,10,2)
+// intensify
+  //.repeat(()  => a.fft[0]*2)
+  //.scale(()=> a.fft[1]*1)
+// crazyKALEID
+// .scale(0.5).rotate(1,1).kaleid(50)
+// FLUID blobs
+//.mask( noise(0.2,0.5).colorama(2).luma(0.25).thresh(0.5))
+.out()
 
 // .☆.*･*.♪｡･ﾟ･｡.☆.* ﾉ”ｇｏｏｄ ｎｉｇｈｔ♪ ☆.｡.:*･ﾟ ☆ ҉ ◢▅◣Ξ◥▅◤Ξ◢▅◣Ξ◥▅◤ ҉ ★ ミ☆☆ keep on dancing!☆☆彡
